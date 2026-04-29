@@ -29,7 +29,8 @@ public class Library extends Building implements LibraryRequirements {
      * Method for showing the available options for the library
      */
     public void showOptions(){
-      System.out.println("Available options at " + this.name + ":\n enter() \n exit() \n goUp() \n goDown()\n goToFloor(n)\n addTitle(title)\n removeTitle(title)\n checkouut(title)\n isAvailable(title)\n containsTitle(title)\n printCollection()");
+      super.showOptions();
+      System.out.println(" + addTitle(title)\n + removeTitle(title)\n + checkouut(title)\n + isAvailable(title)\n + containsTitle(title)\n + printCollection()");
     }
 
     @Override
@@ -42,8 +43,12 @@ public class Library extends Building implements LibraryRequirements {
         super.goToFloor(floorNum);
       }
       else {
-        System.out.println("This building has no elevators, you must use the stairs.");
-        super.goToFloor(floorNum);
+        if (floorNum - this.activeFloor > 1) {
+          throw new RuntimeException("There is no elevator you must use the stairs.");
+        }
+        else {
+          super.goToFloor(floorNum);
+        }
       }
     }
 

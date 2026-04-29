@@ -29,7 +29,8 @@ public class House extends Building implements HouseRequirements {
    * Method for showing what the available options are for the House
    */
   public void showOptions() {
-    System.out.println("Available options at " + this.name + ":\n enter() \n exit() \n goUp() \n goDown()\n goToFloor(n)" + "moveIn(Student)\n isResident(Student)\n hasDiningRoom()\n nResidents()");
+    super.showOptions();
+    System.out.println( " + moveIn(Student)\n + isResident(Student)\n + hasDiningRoom()\n + nResidents()");
   }
 
   @Override

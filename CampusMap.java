@@ -54,6 +54,9 @@ public class CampusMap {
         myMap.addBuilding(new Building("McConnell Hall", "2 Tyler Ct", 4));
         System.out.println(myMap);
 
+        Building ford = new Building("Ford Hall", "100 Green Street Northampton, MA 01063", 4);
+        System.out.println(ford.toString());
+
         // The overloaded methods for house
         House chapin = new House("Chapin House", "3 Chapin Way", 4, true, false);
         Student Lily = new Student("Lily", "99", 2028);
@@ -61,14 +64,14 @@ public class CampusMap {
         ArrayList<Student> students = new ArrayList<Student>();
         students.add(Lily);
         students.add(Alara);
-
+        chapin.showOptions();
         chapin.moveIn(students);
         System.out.println(chapin.nResidents());
         chapin.moveOut(students);
         System.out.println(chapin.nResidents());
 
         // The overloaded methods for library
-        Library neilson = new Library("Neilson", "1 Neilson Drive", 4, true);
+        Library neilson = new Library("Neilson", "1 Neilson Drive", 4, false);
 
         ArrayList<String> titles = new ArrayList<String>();
         neilson.showOptions();
@@ -81,10 +84,12 @@ public class CampusMap {
         neilson.printCollection();
         neilson.removeTitle(titles);
         neilson.printCollection();
+        neilson.goToFloor(4);
 
         // The overloaded methods for cafe
         Cafe campusCenter = new Cafe("Campus Center Cafe", "1 Chapin Way", 3, 50, 50, 50, 50);
         campusCenter.sellCoffee(57, 14, 3);
+        campusCenter.showOptions();
         campusCenter.goToFloor(3);
 
         campusCenter.restock(100);

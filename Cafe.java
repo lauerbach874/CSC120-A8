@@ -32,7 +32,8 @@ public class Cafe extends Building implements CafeRequirements{
      * Method for showing available options for the cafe
      */
     public void showOptions() {
-        System.out.println("Available options at " + this.name + ":\n enter() \n exit() \n goUp() \n goDown()\n goToFloor(n)" + "sellCoffee()");
+        super.showOptions();
+        System.out.println(" + sellCoffee()");
     }
     
     @Override
@@ -41,7 +42,9 @@ public class Cafe extends Building implements CafeRequirements{
      * @param floorNum The floor number 
      */
     public void goToFloor(int floorNum) {
-        System.out.println("Sorry, you don't have authorization to go to this floor");
+        if (floorNum > 1) {
+            throw new RuntimeException ("You do not have the authorization to leave this floor");
+        }
     }
     /**
      * Method for selling a coffee
@@ -126,7 +129,6 @@ public class Cafe extends Building implements CafeRequirements{
         Cafe campusCenter = new Cafe("Campus Center Cafe", "1 Chapin Way", 3, 50, 50, 50, 50);
         campusCenter.sellCoffee(57, 14, 3);
         campusCenter.goToFloor(3);
-
         campusCenter.restock(100);
         campusCenter.restock(25, 3);
         campusCenter.sellCoffee();
